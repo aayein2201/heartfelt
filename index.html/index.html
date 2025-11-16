@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message for Chelsi</title>
+    <style>
+        /* --- Import the Cute Font --- */
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+        /* --- Basic Setup --- */
+        body {
+            font-family: 'Patrick Hand', 'Comic Sans MS', 'cursive', sans-serif;
+            background-color: #fef6f9; /* Softer, creamier pink */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* --- The Slide Styling --- */
+        .slide {
+            display: none; /* Hide all slides by default */
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: block; /* Show only the active slide */
+        }
+
+        /* --- Animation for slides fading in --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Element Styling --- */
+        h2 {
+            color: #e15a81; /* More vibrant, "cute" pink */
+            font-size: 2.7em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.6em; /* A bit bigger for readability */
+            color: #444;
+            line-height: 1.6;
+        }
+
+        p.question {
+            font-size: 1.7em;
+            color: #333;
+            font-weight: bold; /* Make the question pop */
+        }
+
+        blockquote {
+            font-size: 1.4em;
+            font-style: italic;
+            color: #777;
+            border-left: 5px solid #fde7ec; /* Cute pink border */
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+
+        /* --- Button Styling --- */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            font-family: 'Patrick Hand', 'cursive', sans-serif;
+            font-size: 1.4em; /* Bigger text on buttons */
+            background-color: #c8f5d0; /* A richer mint green */
+            color: #2c5b1f; /* Darker green text */
+            border: none;
+            padding: 18px 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            line-height: 1.5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px); /* Add a little "pop" on hover */
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+            background-color: #bcf2c8;
+        }
+        
+        /* Special start button */
+        .btn-start {
+            background-color: #ffcadb; /* Brighter pink */
+            color: #7e3c50;
+            font-size: 1.6em;
+            padding: 20px 30px;
+        }
+        
+        .btn-start:hover {
+            background-color: #ffb8cf;
+        }
+
+        /* Special "potion" buttons */
+        .btn-potion {
+            background-color: #fdf3d0; /* Creamy yellow */
+            color: #6d5a2a;
+        }
+        .btn-potion:hover {
+            background-color: #fceec0;
+        }
+        
+        .final-signoff {
+            font-size: 2em;
+            color: #e15a81;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <audio id="myMusic" src="YOUR_SONG.mp3" loop></audio>
+
+    <div class="container">
+
+        <div id="slide-0" class="slide active">
+            <h2>A Top-Secret Message... 🤫</h2>
+            <p style="font-size: 1.8em;">( For Madam Ji's eyes only! )</p>
+            <div class="options-grid">
+                <button class="btn btn-start" onclick="startApp()">
+                    Click to start the mission 🎶
+                </button>
+            </div>
+        </div>
+
+        <div id="slide-1" class="slide">
+            <h2>Hey Chelsi! (My Dearest Madam Ji!)</h2>
+            <p>I know these past few days with that high fever have been *awful* and you're feeling totally drained. 🤒</p>
+            <p>So, I built this little silly thing to hopefully...<br>1) Make you smile.<br>2) Distract you.<br>3) Remind you that you're awesome.</p>
+            
+            <p class="question">Okay, first mission! To get your energy back, you get to pick ONE 'Magic Get-Well Potion'. Which one?</p>
+            
+            <div class="options-grid">
+                <button class="btn btn-potion" onclick="showSlide('slide-2a')">A Perfect Cup of Tea or Coffee (exactly how you like it) ☕</button>
+                <button class="btn btn-potion" onclick="showSlide('slide-2b')">A Glimmering Potion of 'Cozy Sleep' (12 hours of perfect rest) 😴</button>
+                <button class="btn btn-potion" onclick="showSlide('slide-2c')">A Flask of 'Pure Sunshine' (to feel warm and happy) ☀️</button>
+            </div>
+        </div>
+
+        <div id="slide-2a" class="slide">
+            <h2>The Cozy Choice ☕</h2>
+            <p>Excellent decision! A classic for a reason. You're now wrapped in the coziest blanket with the perfect warm mug of tea or coffee.</p>
+            <p class="question">While you're sipping, what's our *first* 'We're-Feeling-Better' celebration plan?</p>
+            <div class="options-grid">
+                <button class="btn" onclick="showSlide('slide-3a')">Go out and eat all the spicy food we can find. 🌶️</button>
+                <button class="btn" onclick="showSlide('slide-3b')">A lazy movie marathon day (I'll bring the snacks). 🍿</button>
+            </div>
+        </div>
+
+        <div id="slide-2b" class="slide">
+            <h2>The Ultimate Reset 😴</h2>
+            <p>Yesss, the perfect reset button. You're going to wake up feeling so refreshed and recharged. The fever germs HATE this.</p>
+            <p class="question">Okay, post-hibernation... what's the first sound you want to hear?</p>
+            <div class="options-grid">
+                <button class="btn" onclick="showSlide('slide-3c')">Our favorite Kishore Kumar song playing, obviously. 🎵</button>
+                <button class="btn" onclick="showSlide('slide-3d')">Absolutely... complete... silence. (And maybe birds). 🤫</button>
+            </div>
+        </div>
+
+        <div id="slide-2c" class="slide">
+            <h2>Solar Powered! ☀️</h2>
+            <p>Feeling that warmth! You're practically glowing. You can literally feel the "sick" melting away. Good choice!</p>
+            <p class="question">With this new energy, which 'Madam Ji' adventure are you activating first?</p>
+            <div class="options-grid">
+                <button class="btn" onclick="showSlide('slide-3e')">A long, long drive with the windows down (and music up). 🚗</button>
+                <button class="btn" onclick="showSlide('slide-3f')">Just sitting in a park, doing absolutely nothing but chatting. 🌳</button>
+            </div>
+        </div>
+
+        <div id="slide-3a" class="slide">
+            <h2>It's a Date! 🌶️</h2>
+            <p>My stomach is already excited. I'll make a list of all the best spots. You just focus on getting better so we can go!</p>
+            <div class="options-grid">
+                <button class="btn btn-start" onclick="showSlide('slide-4')">Just one more thing...</button>
+            </div>
+        </div>
+        
+        <div id="slide-3b" class="slide">
+            <h2>It's a Plan! 🍿</h2>
+            <p>Perfect. I'll be in charge of the remote and the endless supply of popcorn and snacks. It's a deal. Get ready.</p>
+            <div class="options-grid">
+                <button class="btn btn-start" onclick="showSlide('slide-4')">Just one more thing...</button>
+            </div>
+        </div>
+        
+        <div id="slide-3c" class="slide">
+            <h2>The Playlist is Ready 🎵</h2>
+            <p>Already on it. *'Pal pal dil ke paas...'* 🎶 The classics are ready and waiting for you. Can't wait.</p>
+            <div class="options-grid">
+                <button class="btn btn-start" onclick="showSlide('slide-4')">Just one more thing...</button>
+            </div>
+        </div>
+        
+        <div id="slide-3d" class="slide">
+            <h2>Peace and Quiet 🤫</h2>
+            <p>I totally get that. After all this, you deserve it. Sending you all the peaceful, quiet, healing vibes in the world.</p>
+            <div class="options-grid">
+                <button class="btn btn-start" onclick="showSlide('slide-4')">Just one more thing...</button>
+            </div>
+        </div>
+        
+        <div id="slide-3e" class="slide">
+            <h2>Shotgun! 🚗</h2>
+            <p>Get your playlist ready, Madam Ji. It's going to be epic. We'll find a new road and just drive.</p>
+            <div class="options-grid">
+                <button class="btn btn-start" onclick="showSlide('slide-4')">Just one more thing...</button>
+            </div>
+        </div>
+        
+        <div id="slide-3f" class="slide">
+            <h2>The Simple Things 🌳</h2>
+            <p>Honestly, that sounds perfect. Simple and the best. It's a plan. Can't wait to just hang out and talk nonsense again.</p>
+            <div class="options-grid">
+                <button class="btn btn-start" onclick="showSlide('slide-4')">Just one more thing...</button>
+            </div>
+        </div>
+
+        <div id="slide-4" class="slide">
+            <h2>Seriously, though... 💖</h2>
+            <p>I know it's miserable being sick. You're one of the strongest people I know, and I hate seeing you feel so low. Just rest up, take it easy, and don't you *dare* worry about anything.</p>
+            <p>I'm here for whatever you need (even if it's just to complain about the fever for an hour, I'm all ears!).</p>
+            <p>Can't wait to see you back to your full 'Madam Ji' self. The world is just not as fun without you.</p>
+            
+            <p class="final-signoff">- Piyush</p>
+            
+            <hr style="border:0; border-top: 1px solid #eee; margin: 30px 0;">
+            
+            <blockquote>
+                "Friendship... is not something you learn in school. But if you haven't learned the meaning of friendship, you really haven't learned anything in life."
+            </blockquote>
+        </div>
+
+    </div>
+
+    <script>
+        // This is the JavaScript that makes the slides work.
+
+        // Get the music element
+        const music = document.getElementById("myMusic");
+
+        // Function to start the app (play music and show first slide)
+        function startApp() {
+            music.play().catch(e => console.log("Music autoplay was blocked by the browser."));
+            showSlide('slide-1');
+        }
+
+        // Function to show a specific slide
+        function showSlide(slideId) {
+            // Get all slides
+            const slides = document.querySelectorAll('.slide');
+            
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show the one we want
+            const nextSlide = document.getElementById(slideId);
+            if (nextSlide) {
+                nextSlide.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
